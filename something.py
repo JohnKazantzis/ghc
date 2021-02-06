@@ -56,10 +56,9 @@ def worth(t):
         uniqueValues = pizzas[t[1]] | pizzas[t[2]] | pizzas[t[3]] | pizzas[t[4]]
     
     score = len(uniqueValues) ** 2
-    # print("Score: {}".format(score))
     return score
 
-for i in range(5000000):
+for i in range(7000000):
     # Get random team value
     x1 = r.randint(1, len(outputList) - 1)
     x2 = r.randint(1, len(outputList) - 1)
@@ -69,13 +68,9 @@ for i in range(5000000):
     y2 = r.randint(1, len(outputList[x2]) - 1)
 
     # Find old score of both teams
-    worth(outputList[x1])
-    worth(outputList[x2])
-    # print("TOTAL SCORE BEFORE: {}".format(worth(outputList[x1]) + worth(outputList[x2])))
     scoreBefore = worth(outputList[x1]) + worth(outputList[x2])
 
     outputList[x1][y1], outputList[x2][y2] = outputList[x2][y2], outputList[x1][y1]
-    # print("TOTAL SCORE AFTER: {}".format(worth(outputList[x1]) + worth(outputList[x2])))
     scoreAfter = worth(outputList[x1]) + worth(outputList[x2])
 
     if scoreAfter < scoreBefore:
